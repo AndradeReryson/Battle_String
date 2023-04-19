@@ -1,3 +1,3 @@
 # Battle_String
 
-<b> Battle String </b>
+<b> Para abrir o game, rode apenas o index </b>
