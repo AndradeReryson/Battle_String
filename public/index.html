@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  
+  
+  <title>Batte String</title>
+
+</head>
+<body>
+  <h3 class="titulo-batalha" id="titulo_batalha">Battle String</h3>
+  <div class="container-layout">
+      
+      <!--seção de palavras recebidas-->
+      <form>
+        <div class="pilha-palavras">
+          <label class="String-bombs"><strong>Strings bombs</strong></label>
+          <span class="bombs"></span>
+        </div>
+      </form>
+
+      <!--container principal-->
+      <div class="container-central" id="container-central">
+        <canvas id="palavra_display" class="palavra-display"></canvas>
+        <input id="palavra_input" class="palavra-input"></input>
+        <button id="Iniciar">Iniciar</button>
+      </div>
+
+      <script src="./script.js"></script>
+
+      <!--contagem de tempo e de erros-->
+      <div class="erros-tempo">
+
+        <div class="tempo-container">
+          <p class="tempo">Tempo</p>
+          <div class="timer" id="timer">--</div>
+        </div>
+
+        <div class="erro-container">
+          <p class="erro">Erros: </p>
+          <span class="erros">0</span>
+        </div>
+      </div>
+      
+
+
+  </div>
+  <!--
+  <script src="/socket.io/socket.io.js"></script>-->
+  
+  
+</body>
+</html>

@@ -1,0 +1,184 @@
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0px;
+  background-color:cornflowerblue;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h3{
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3.5rem;
+  color: brown;
+  margin: 1rem;
+  position:fixed;
+  text-align: center;
+  top: 1rem;
+}
+
+.container-layout{
+  display: flex;
+  width: 75%;
+  height: 80%;
+  margin-top: 3.5rem;
+}
+
+form {
+  display: flex;
+  margin-right: 2%;
+  margin-left: 0px;
+  width: 15%;
+  height: 100%; /* só min-height funciona aqui, não sei porque */
+  border-radius: 10px;
+  background-color: #fff;
+ 
+}
+
+.pilha-palavras{
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.String-bombs{
+  margin-top: 1rem;
+}
+
+.container-central {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1%;
+  border-radius: .5rem;
+  width: 65%;
+  height: 96%;
+  /*max-width: 100%;*/
+  /*gap: 420px;
+  justify-content: flex-end;
+  text-align: center;
+  */
+}
+
+.container-input{
+  display: flex;
+  flex-direction: column;
+}
+
+    /* canvas */
+
+.palavra-input {
+  position: absolute;
+  bottom: 4%;
+  background-color: white;
+  border: 2px solid rgb(168, 168, 168);
+  align-self: center;
+  outline: none;
+  width: 92%;
+  height: 4rem;
+  resize: none;
+  padding: 0.5rem;
+  font-size: 3rem;
+  border-radius: .5rem;
+  text-align: center;
+}
+
+.quote-input:focus {
+  border-color: black;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: #fff;
+  background-color: red;
+}
+
+button {
+  position: absolute;
+  font-family: 'Press Start 2P', cursive;
+  top: 40%;
+  left: 50%;
+  width: 15rem;
+  background-color: red;
+  padding: 1rem;
+  color: #fff;
+  border: none;
+  margin-top: -2rem;
+  margin-left: -8rem; /* metade do (width + padding) total*/
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+button:hover{
+  background-color:darkorange;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.erros-tempo {
+  display: flex;
+  min-height: 100%;
+  width: 15%;
+  margin-left: 2%;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  
+}
+
+.tempo-container{
+  align-self: flex-start;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 7rem;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.tempo{
+  margin-top: 1rem;
+  font-weight: bold
+}
+
+.timer {
+  font-size: 2rem;
+  color:red;
+  font-weight: bold;
+}
+
+.erro-container{
+  align-self: flex-start;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 7rem;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.erro{
+  margin-top: 15px;
+  font-weight: bold
+}
+
+.erros{
+  font-size: 2rem;
+  color:red;
+  font-weight: bold;
+}
