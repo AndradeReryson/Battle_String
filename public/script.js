@@ -184,6 +184,41 @@ class palavra{
     
 }
 
+// Ainda precisamos decidir sobre como implementar a string bomb, mas a ideia é que quando o usuário acertar a palavra inteira, a palavra será enviada ao oponente em forma de string_bomb, ou seja, uma palavra a mais vai descer na tela do oponente, junto da palavra padrão
+// Como a string bomb é exatamente igual uma palavra, ela herda os metodos da palavra, assim, só precisamos mudar alguns comportamentos especificos da string_bomb
+class string_bomb extends palavra{
+    constructor(){
+        super() // é necessário chamar o construtor da mãe dessa classe (nesse caso, o palavra) para que ela herde todos os metodos e atributos
+        this.init()
+    }
+
+    init(){    
+        /*
+            Não mexi nos metodos ainda, precisamos conversar e definir como a string bomb deve funcionar, mas o que eu prevejo:
+            - o texto dela vai vir do form que guarda as string bombs la no index.html
+            - a posição Y deve ser algo tipo -50, e quando a bomb for chamada, seu y deve ser modificado para 0 para aparecer na tela. Ao chegar ao fim, deve ser devolvido para -50, para ficar oculto ate ser chamado novamente
+            - diferente da palavra, a bomb não pode gerar outra string bomb caso seja digitada corretamente
+            
+
+        */
+        desligarInput(false)
+        this.list_letras = ['J','i','n','g','l','e','']     // jingli
+        this.text = "Jingle"
+        
+        this.setText(valor_API) // troca os valores da "list_letras" e "text" para a palavra que a API devolveu
+        
+        this.height = ctx.font.match(/\d+/).pop() || 10; // altura da palavra   
+        this.x = getPosicaoAleatoria(this.list_letras.length)
+        this.y = -50;      
+        this.speedY = 0.9;      
+        this.list_acertos = [] // acertos do usuario   
+        this.list_erros = [] // erros do usuário
+        this.index_atual = 0; // diz qual letra do list_letras será comparada com o input do usuário. 0 = primeira
+    }
+
+
+}
+
 // imrpime a contagem regressiva e segura o program pela quantidade de segundos determina
 async function contagemRegress(tempo){
     ctx.beginPath()
@@ -213,8 +248,9 @@ async function iniciar() {
     updateAPI();
     await contagemRegress(5);
     palavra1 = new palavra();  
+    bomb1 = new string_bomb();
     desligarInput(false)
-    tempo_inicial = 10
+    tempo_inicial = 60
     startTimer();
     animate(); 
 }     
@@ -223,6 +259,8 @@ async function iniciar() {
 function manipularPalavra(){
     palavra1.update();
     palavra1.draw();
+    bomb1.update();
+    bomb1.draw();
 }
 
 // uma vez desenhada a palavra no canvas, ela permanece la, mesmo desenhando outra. Para apagar a posição antiga, usamos o clearRect, e chamamos o metodo manipularPalavra().
@@ -243,7 +281,11 @@ Palavra_INPUT.addEventListener('keypress', (evt) => {
     if(evt.keyCode === 13 || evt.keyCode === 32){
         evt.preventDefault()
     } else {
-        palavra1.conferirInput(evt.key)
+        // aqui, o evento testa se a bomb1 está mais perto do input do que a palavra1. Ele só vai conferir o input do que está mais perto
+        if(bomb1.y > palavra1.y)
+            bomb1.conferirInput(evt.key)
+        else if (bomb1.y < palavra1.y)
+            palavra1.conferirInput(evt.key)
     }
 })
 
@@ -309,4 +351,4 @@ async function finalizarPartida(){
     timer.innerText = 0;           // zera o timer
     tempo_inicial = -1; // setado para -1 para nao criar um laço infinito no cronometro
     clearInterval(intervalo_timer);
-  }
+}
