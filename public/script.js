@@ -1,5 +1,5 @@
 
-/*const socket = io();*/
+const socket = io();
 //const CIT_ALEATORIA_API =  'http://api.quotable.io/random';
 // recebe as palavras da API
 // document.fonts.add();
@@ -10,6 +10,7 @@ const Tempo_TELA = document.getElementById('timer');
 const Botao_iniciar = document.getElementById('Iniciar');
 const Palavra_bomb = document.querySelector('.pilha-palavras');
 var JOGO_EM_CURSO = false // vai dizer se o jogo está em curso ou se acabou
+var STRING_BOMB_CAINDO = false // diz se tem uma string bomb a caminho 
 
 const canvas = document.getElementById('palavra_display');
 const ctx = canvas.getContext('2d') // o ctx é quem desenha as formas
@@ -35,7 +36,7 @@ var valor_API = "Palavra"; // recebe o valor da API
 function getPalavraAleatoria(){
     return new Promise(function (resolve, reject) {
         $.getJSON('https://random-word-api.herokuapp.com/word', function( data ) {
-            aux = JSON.stringify(data[0]);      // pega só a palavra, sem os [], mas vem com ""
+            let aux = JSON.stringify(data[0]);      // pega só a palavra, sem os [], mas vem com ""
             valor_API = aux.replace(/['"]+/g, '');      // tira as ""
             resolve(valor_API)                          // termina a promise (enquanto nao der resolve o método não pode ser chamado novamente)
         });
@@ -68,11 +69,20 @@ function getPosicaoAleatoria(comprimento_palavra){
     }
 }
 
+const Soma_erro = () =>{
+    const erros = document.querySelector('.erros');
+  
+    erros.textContent = parseInt(erros.textContent) + 1
+    if(erros.textContent > 40){
+        alert("GAME OVER")
+    }
+}
+
 // classe palavra, está sendo responsavel por desenhar a palavra
 // no canvas, o alinhamento começa pelo canto superior esquerdo, que equivale a X = 0 e Y = 0
 class palavra{
     constructor(){
-        this.init()
+        
     }
 
     init(){    
@@ -96,16 +106,15 @@ class palavra{
     }
 
     async conferirInput(input){
-        // index_atual controla com qual letra da palavra o input deve ser comparado. Deve rodar enquanto for menor que a palavra
 
         if(this.index_atual < this.list_letras.length){
 
-            // suponhamos que estamos na primeira letra , ou seja, index_atual = 0
             // se a letra inserida no input for igual a letra que está em list_letras[0]
             if(input === this.list_letras[this.index_atual]){
                 this.list_acertos.push(this.index_atual); // o index da letra atual é enviado ao list_acertos
             } else {
                 this.list_erros.push(this.index_atual); // o index da letra atual é enviado ao list_erros
+                Soma_erro();
             }
 
             this.index_atual++
@@ -113,6 +122,9 @@ class palavra{
             // quando o index_atual == tamanho da palavra, ele não faz nada, pois para entrar no else e chamar a proxima palavra, o if precisa rodar + uma vez. isso força o usuário a digitar algo no input mesmo depois de ter digitado todas as letras.
             // para resolver, depois de incrementar, se o index_atual for igual o tamanho da palavra, o if abaixo aciona um keypress no input, o que faz o if rodar mais uma vez e cair no else
             if(this.index_atual == this.list_letras.length){
+                if(this.list_acertos.length == this.list_letras.length){
+                    socket.emit("P_bomb", this.text);
+                }
                 Palavra_INPUT.dispatchEvent(new Event('keypress'));     // aciona um keypress no input
             }
         } else {
@@ -184,40 +196,106 @@ class palavra{
     
 }
 
-// Ainda precisamos decidir sobre como implementar a string bomb, mas a ideia é que quando o usuário acertar a palavra inteira, a palavra será enviada ao oponente em forma de string_bomb, ou seja, uma palavra a mais vai descer na tela do oponente, junto da palavra padrão
-// Como a string bomb é exatamente igual uma palavra, ela herda os metodos da palavra, assim, só precisamos mudar alguns comportamentos especificos da string_bomb
 class string_bomb extends palavra{
-    constructor(){
+    constructor(txt){
         super() // é necessário chamar o construtor da mãe dessa classe (nesse caso, o palavra) para que ela herde todos os metodos e atributos
-        this.init()
+        this.y = -40;
+        this.init(txt);
     }
 
-    init(){    
-        /*
-            Não mexi nos metodos ainda, precisamos conversar e definir como a string bomb deve funcionar, mas o que eu prevejo:
-            - o texto dela vai vir do form que guarda as string bombs la no index.html
-            - a posição Y deve ser algo tipo -50, e quando a bomb for chamada, seu y deve ser modificado para 0 para aparecer na tela. Ao chegar ao fim, deve ser devolvido para -50, para ficar oculto ate ser chamado novamente
-            - diferente da palavra, a bomb não pode gerar outra string bomb caso seja digitada corretamente
-            
-
-        */
-        desligarInput(false)
+    init(palavra_bomb){ 
         this.list_letras = ['J','i','n','g','l','e','']     // jingli
         this.text = "Jingle"
         
-        this.setText(valor_API) // troca os valores da "list_letras" e "text" para a palavra que a API devolveu
+        this.setText(palavra_bomb) 
         
         this.height = ctx.font.match(/\d+/).pop() || 10; // altura da palavra   
         this.x = getPosicaoAleatoria(this.list_letras.length)
-        this.y = -50;      
+        
         this.speedY = 0.9;      
         this.list_acertos = [] // acertos do usuario   
         this.list_erros = [] // erros do usuário
         this.index_atual = 0; // diz qual letra do list_letras será comparada com o input do usuário. 0 = primeira
     }
 
+    async conferirInput(input){
+
+        if(this.index_atual < this.list_letras.length){
+
+            if(input === this.list_letras[this.index_atual]){
+                this.list_acertos.push(this.index_atual); 
+            } else {
+                this.list_erros.push(this.index_atual); 
+                Soma_erro();
+            }
+
+            this.index_atual++
+            
+            
+            if(this.index_atual == this.list_letras.length){
+                Palavra_INPUT.dispatchEvent(new Event('keypress'));     // aciona um keypress no 
+            }
+        } else {
+            await esperarSegundos(0.05)
+            desligarInput(true);
+            await esperarSegundos(0.5)
+            Palavra_INPUT.value = "";   // aqui só roda depois de digitar a palavra inteira
+            
+            this.y = -50    // esconde a bomb no topo do canvas 
+            desligarInput(false);   // liga o input denovo
+            bombs.shift();  // remove a primeira string bomb do vetor
+        }
+    }
+
+    draw(){
+        if(this.y < canvas.height - 80){         
+
+            let x_origin = this.x 
+
+            for(let i = 0; i < this.list_letras.length; i++){
+                
+                if(this.list_acertos.includes(i)){
+                    ctx.beginPath()
+                    ctx.fillStyle = 'lightgreen'
+                    ctx.fillRect(x_origin, this.y - 30, ctx.measureText(this.list_letras[i]).width, 30)
+                } else if (this.list_erros.includes(i)){
+                    ctx.beginPath()
+                    ctx.fillStyle = 'red'
+                    ctx.fillRect(x_origin, this.y - 30, ctx.measureText(this.list_letras[i]).width, 30)
+                }
+
+                ctx.beginPath()
+                ctx.font = 'bold 35px Arial'
+                ctx.fillStyle = 'black';
+                ctx.textBaseLine = 'top'
+                ctx.fillText(this.list_letras[i], x_origin, this.y)
+                x_origin += ctx.measureText(this.list_letras[i]).width 
+            }
+            
+        } else {
+            //STRING_BOMB_CAINDO = false;
+            Palavra_INPUT.value = ""
+            this.y = -50;
+            bombs.shift();
+        }
+    }
+
 
 }
+
+// vetor que vai guardar todas as string bombs
+const bombs = []
+socket.on("texto_bomb_cliente", (texto) =>{
+    //STRING_BOMB_CAINDO = true;
+    bombs.push(new string_bomb(texto)); 
+    //
+    const bomb_span = document.createElement('span')
+    bomb_span.innerText = texto;
+    Palavra_bomb.appendChild(bomb_span)
+
+    //console.log(texto);
+});
+
 
 // imrpime a contagem regressiva e segura o program pela quantidade de segundos determina
 async function contagemRegress(tempo){
@@ -247,8 +325,9 @@ async function iniciar() {
     JOGO_EM_CURSO = true;
     updateAPI();
     await contagemRegress(5);
+    bombs.length = 0; // zera as bombs
     palavra1 = new palavra();  
-    bomb1 = new string_bomb();
+    palavra1.init()
     desligarInput(false)
     tempo_inicial = 60
     startTimer();
@@ -259,8 +338,14 @@ async function iniciar() {
 function manipularPalavra(){
     palavra1.update();
     palavra1.draw();
-    bomb1.update();
-    bomb1.draw();
+    
+    // se o vetor tiver no mínimo uma string bomb ele vai desenhá-la
+    if(bombs.length > 0){
+        for(let i = 0; i < bombs.length; i++){
+            bombs[i].update(); // 
+            bombs[i].draw();
+        }
+    }
 }
 
 // uma vez desenhada a palavra no canvas, ela permanece la, mesmo desenhando outra. Para apagar a posição antiga, usamos o clearRect, e chamamos o metodo manipularPalavra().
@@ -281,11 +366,16 @@ Palavra_INPUT.addEventListener('keypress', (evt) => {
     if(evt.keyCode === 13 || evt.keyCode === 32){
         evt.preventDefault()
     } else {
-        // aqui, o evento testa se a bomb1 está mais perto do input do que a palavra1. Ele só vai conferir o input do que está mais perto
-        if(bomb1.y > palavra1.y)
-            bomb1.conferirInput(evt.key)
-        else if (bomb1.y < palavra1.y)
+
+        try{
+            if(bombs[0].y > palavra1.y){
+                bombs[0].conferirInput(evt.key)
+            } else {
+                palavra1.conferirInput(evt.key)
+            }
+        } catch (e){
             palavra1.conferirInput(evt.key)
+        }
     }
 })
 
@@ -309,7 +399,7 @@ function desligarInput(b){
 // função que recebe segundos e faz o javascript esperar através de uma promise
 // serve apenas para atrasar algumas outras funções
 async function esperarSegundos(segundos){
-    tempo = segundos * 1000
+    let tempo = segundos * 1000
     await new Promise(resolve => setTimeout(resolve, tempo));
 }
 
