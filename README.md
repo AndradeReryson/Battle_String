@@ -1,7 +1,6 @@
 # Battle_String
 
-<b> Para abrir o game, rode apenas o public/index.html </b> <br>
-O src/server.js cria a conexão com websockets e ja está funcionando mas não está implementado ainda
+<b> Para rodar o game, usem o node ou nodemon para executar o server.js, o game vai abrir no localhost:8080 </b>
 
 Ainda devemos deservolver:
 - decidir o design do website. Temos as telas:
