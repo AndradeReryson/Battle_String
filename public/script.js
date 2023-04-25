@@ -199,11 +199,12 @@ class palavra{
 class string_bomb extends palavra{
     constructor(txt){
         super() // é necessário chamar o construtor da mãe dessa classe (nesse caso, o palavra) para que ela herde todos os metodos e atributos
-        this.y = -40;
-        this.init(txt);
+        this.y = -5;
+        this.init(txt)
     }
 
-    init(palavra_bomb){ 
+    async init(palavra_bomb){ 
+        this.y = 0;
         this.list_letras = ['J','i','n','g','l','e','']     // jingli
         this.text = "Jingle"
         
@@ -285,9 +286,17 @@ class string_bomb extends palavra{
 
 // vetor que vai guardar todas as string bombs
 const bombs = []
-socket.on("texto_bomb_cliente", (texto) =>{
+socket.on("texto_bomb_cliente", async (texto) =>{
     //STRING_BOMB_CAINDO = true;
+    
+    /* antes de criar e mostrar a bomb na tela, se a palavra estiver bem no começo do canvas ou proximo do fim, deve-se esperar 1 segundo
+    isso para evitar que a bomb fique por cima da palavra*/
+    if(palavra1.y < 70 || palavra1.y > canvas.height - 110){
+        await esperarSegundos(1)
+    } 
+
     bombs.push(new string_bomb(texto)); 
+    
     //
     const bomb_span = document.createElement('span')
     bomb_span.innerText = texto;
