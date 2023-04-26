@@ -69,6 +69,20 @@ function getPosicaoAleatoria(comprimento_palavra){
     }
 }
 
+
+const Soma_pontos = (valor) =>{
+    const pontos = document.querySelector('.pontos');
+  
+    let str_pontos = "";
+    let p = parseInt(pontos.textContent) + valor
+    for(let i = p.toString().length; i<6; i++){
+        str_pontos += "0";
+    }
+    pontos.textContent = (str_pontos + p.toString())
+
+    
+}
+
 const Soma_erro = () =>{
     const erros = document.querySelector('.erros');
   
@@ -112,6 +126,7 @@ class palavra{
             // se a letra inserida no input for igual a letra que está em list_letras[0]
             if(input === this.list_letras[this.index_atual]){
                 this.list_acertos.push(this.index_atual); // o index da letra atual é enviado ao list_acertos
+                Soma_pontos(5);
             } else {
                 this.list_erros.push(this.index_atual); // o index da letra atual é enviado ao list_erros
                 Soma_erro();
@@ -123,6 +138,7 @@ class palavra{
             // para resolver, depois de incrementar, se o index_atual for igual o tamanho da palavra, o if abaixo aciona um keypress no input, o que faz o if rodar mais uma vez e cair no else
             if(this.index_atual == this.list_letras.length){
                 if(this.list_acertos.length == this.list_letras.length){
+                    Soma_pontos(10);
                     socket.emit("P_bomb", this.text);
                 }
                 Palavra_INPUT.dispatchEvent(new Event('keypress'));     // aciona um keypress no input
@@ -225,6 +241,7 @@ class string_bomb extends palavra{
 
             if(input === this.list_letras[this.index_atual]){
                 this.list_acertos.push(this.index_atual); 
+                Soma_pontos(5);
             } else {
                 this.list_erros.push(this.index_atual); 
                 Soma_erro();
@@ -266,11 +283,26 @@ class string_bomb extends palavra{
                 }
 
                 ctx.beginPath()
-                ctx.font = 'bold 35px Arial'
-                ctx.fillStyle = 'black';
+                ctx.font = 'bold 35px Rockwell'
+                ctx.fillStyle = 'orange';
+                ctx.strokeStyle = 'black'
+                ctx.lineWidth = 5
+                ctx.lineJoin = 'round'
                 ctx.textBaseLine = 'top'
+                ctx.strokeText(this.list_letras[i], x_origin, this.y)
                 ctx.fillText(this.list_letras[i], x_origin, this.y)
+
+                if(this.list_acertos.includes(i)){
+                    ctx.fillStyle = 'white';
+                    ctx.strokeStyle = 'black'
+                    ctx.lineWidth = 5
+                    ctx.strokeText(this.list_letras[i], x_origin, this.y)
+                    ctx.fillText(this.list_letras[i], x_origin, this.y)
+                } 
+
                 x_origin += ctx.measureText(this.list_letras[i]).width 
+
+                
             }
             
         } else {
@@ -342,6 +374,7 @@ async function iniciar() {
     startTimer();
     animate(); 
 }     
+
 
 // essa função é a que faz a palavra descer, toda vez que é chamada, ela muda o Y da palavra para +1 e desenha ela de novo, bem rapido, o que da ilusão de movimento
 function manipularPalavra(){

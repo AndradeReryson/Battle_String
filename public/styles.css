@@ -127,7 +127,7 @@ button:hover{
   cursor: pointer;
 }
 
-.erros-tempo {
+.erros-tempo-pont {
   display: flex;
   min-height: 100%;
   width: 15%;
@@ -136,6 +136,28 @@ button:hover{
   align-items: center;
   border-radius: 10px;
   
+}
+
+.pontuacao{
+  margin-top: 1rem;
+  font-weight: bold
+}
+
+.pontos{
+  font-size: 1.6rem;
+  color:red;
+  font-weight: bold;
+}
+
+.pontos-container{
+  align-self: flex-start;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 7rem;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .tempo-container{
@@ -147,6 +169,7 @@ button:hover{
   height: 7rem;
   align-items: center;
   border-radius: 10px;
+  margin-top: 1rem;
 }
 
 .tempo{
