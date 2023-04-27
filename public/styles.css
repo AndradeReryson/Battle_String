@@ -31,7 +31,7 @@ h3{
   margin-top: 3.5rem;
 }
 
-form {
+.container-pilha {
   display: flex;
   margin-right: 2%;
   margin-left: 0px;
@@ -204,4 +204,9 @@ button:hover{
   font-size: 2rem;
   color:red;
   font-weight: bold;
+}
+
+.input_dis{
+  background-color: tomato;
+  transition: 0.2s;
 }
