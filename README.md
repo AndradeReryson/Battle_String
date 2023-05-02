@@ -2,7 +2,7 @@
 
 <b> Para rodar o game, usem o node ou nodemon para executar o server.js, o game vai abrir no localhost:8080 </b>
 
-Ainda devemos deservolver:
+Ainda devemos desenvolver:
 - decidir o design do website. Temos as telas:
   - tela inicial
   - tela cadastro & login
