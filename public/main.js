@@ -10,6 +10,12 @@ const string_bomb = String_bomb;
 import Mensagem from "../../src/Mensagem.js";
 const mensagem = Mensagem;
 
+(async function carregarFonte() {
+    const font = new FontFace("PS2P", "url(../PressStart2P-Regular.ttf)")
+    await font.load();
+    document.fonts.add(font);
+})();
+
 export const socket = io();
 
 export const Palavra_INPUT = document.querySelector('.palavra-input');
@@ -118,7 +124,7 @@ export const bombs = []
 socket.on("texto_bomb_cliente", async (texto) =>{
 
     // mostra uma mensagem no canto superior esquerdo do canvas, avisando que vem bomba
-    mostrarMsg(10, 20, "String Bomb", 20,"255,165,0", "idle")
+    mostrarMsg(10, 30, "String Bomb", 20,"255,165,0", "idle")
 
     /* antes de criar e mostrar a bomb na tela, se a palavra estiver bem no começo do canvas ou proximo do fim, deve-se esperar 1 segundo
     isso para evitar que a bomb fique por cima da palavra*/
@@ -152,7 +158,7 @@ export function desligarInput(b){
 // imrpime a contagem regressiva e segura o program pela quantidade de segundos determina
 async function contagemRegress(tempo){
     ctx.beginPath()
-    ctx.font = 'bold 90px Arial'
+    ctx.font = 'bold 75px PS2P'
     ctx.fillStyle = 'black';
     ctx.textBaseLine = 'top'
     

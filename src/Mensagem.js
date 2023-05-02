@@ -43,7 +43,7 @@ class Mensagem{
 
     draw(){
         // configurações do desenha da palavra
-        ctx.font = 'bold '+this.size+'px Arial';
+        ctx.font = 'bold '+this.size+'px PS2P';
         ctx.fillStyle = 'rgba('+this.cor+','+this.opacity+')';
         ctx.strokeStyle = 'rgba(1, 1, 1,'+this.opacity+')';
         ctx.lineWidth = 5;      // grossura do contorno 
