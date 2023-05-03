@@ -69,18 +69,24 @@ async function updateAPI(){
     }
 }
 
-// retorna um valor aleatorio para a coordenada X da palavra
-export function getPosicaoAleatoria(comprimento_palavra){
-    
-    // calculo fudido ai pra selecionar um valor que não excede o canvas
-    let calc = Math.abs(Math.random() * (canvas.width + comprimento_palavra*2) - (comprimento_palavra*25))
 
-    // caso o valor seja < 100 ele soma + 100. Isso para evitar que a palavra fique na extremidade esquerda da tela
-    if(calc < 100){
-        return calc + 100
-    } else {
-        return calc
+// retorna um valor aleatorio para a coordenada X da palavra
+export function getPosicaoAleatoria(lista_letras){
+    let comprimento_palavra = 0;
+
+    // descobrindo o tamanho da palavra medindo cada letra e somando
+    for(let i = 0; i<lista_letras.length; i++){
+        comprimento_palavra += (ctx.measureText(lista_letras[i]).width + 20)
     }
+
+    // Math.floor(Math.random() * (myMax - myMin + 1) + myMin);
+    // calculo pra escolher uma posição no eixo X pra palavra, de modo que ela não exceda o canvas 
+    let min = ((100))
+    let max = ((canvas.width - comprimento_palavra + min))
+    let calc = Math.abs( Math.random() * (max - min + 1) + min)
+
+    return calc
+
 }
 
 

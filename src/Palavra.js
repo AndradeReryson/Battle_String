@@ -15,7 +15,7 @@ class Palavra{
         this.setText(valor_API) // troca os valores da "list_letras" e "text" para a palavra que a API devolveu
         
         this.height = ctx.font.match(/\d+/).pop() || 10; // altura da palavra   
-        this.x = getPosicaoAleatoria(this.list_letras.length)
+        this.x = getPosicaoAleatoria(this.list_letras)
         this.y = 0;      
         this.speedY = 0.9;      
         this.list_acertos = [] // acertos do usuario   
