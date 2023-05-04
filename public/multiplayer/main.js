@@ -180,6 +180,8 @@ async function contagemRegress(tempo){
         ctx.fillText(i, pos_x, pos_y);
         await esperarSegundos(1);
     }
+
+    timer.innerText = 20
 }
 
 
@@ -193,12 +195,13 @@ async function iniciar() {
     JOGO_EM_CURSO = true;
     updateAPI();
     await contagemRegress(5);
+    startTimer();
     bombs.length = 0; // zera as bombs
     palavra1 = new palavra();  
     palavra1.init()
     desligarInput(false)
     tempo_inicial = 20
-    startTimer();
+    
     animate(); 
 }     
 
@@ -296,6 +299,8 @@ function cronometro() {
   } else if(tempo_inicial == 0){    // se o tempo for 0, ele finaliza a partida
     finalizarPartida()
     return 0 // 
+  } else {
+    return "--"
   }
 }
 
@@ -308,13 +313,12 @@ Botao_iniciar.addEventListener('click', () => {
 async function finalizarPartida(){
     JOGO_EM_CURSO = false
     tempo_inicial = -1; // setado para -1 para nao criar um laço infinito no cronometro
-    timer.innerText = 0;           // zera o timer
+    timer.innerText = "--";           // zera o timer
+    
     desligarInput(true); // desliga o textfield
     Palavra_INPUT.value = ""        // limpa o input
-    console.log(contador_erros.textContent, contador_erros.textContent); 
+    await esperarSegundos(2)
     mostrarResultado(contador_erros.textContent, contador_pontos.textContent); 
-    contador_erros.textContent = "0"
-    contador_pontos.textContent = "000000"
     Botao_iniciar.hidden = false // mostra o botao iniciar denovo
     clearInterval(intervalo_timer);
 }

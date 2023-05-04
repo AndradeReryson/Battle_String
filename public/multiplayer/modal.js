@@ -1,3 +1,5 @@
+import { desligarInput } from "./main.js";
+
 const modal = document.getElementById('container-modal-resultado');
 const botao = document.getElementById('btn-continuar')
 
@@ -18,6 +20,9 @@ async function esperarSegundos(segundos){
 }
 
 export async function mostrarResultado(er, po){
+    erros.textContent = "0"
+    pontos.textContent = "000000"
+
     desligarInput(true);
     $('#line1').hide();
     $('#line2').hide();
@@ -71,9 +76,14 @@ export async function mostrarResultado(er, po){
     $('#line4').show(100);
 
     await (async () => {
-        for(let i = 0; i<=(valor_pontos - valor_deducao); i++){
-            tbl_total.innerText = i;
-            await esperarSegundos(0.002);
+        if(valor_pontos >= valor_deducao){
+            for(let i = 0; i<=(valor_pontos - valor_deducao); i++){
+                tbl_total.innerText = i;
+                await esperarSegundos(0.002);
+            }
+        } else {
+            tbl_total.innerText = 0;
+            await esperarSegundos(0.2);
         }
     })();
     await esperarSegundos(1);
