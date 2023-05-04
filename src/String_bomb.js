@@ -1,6 +1,6 @@
 // importando variaveis e métodos do public/main.js. 
 import { bombs, ctx, canvas, desligarInput, valor_API, Palavra_INPUT, Soma_erro, Soma_pontos,
-mostrarMsg, getPosicaoAleatoria, esperarSegundos} from "../../public/main.js"
+mostrarMsg, getPosicaoAleatoria, esperarSegundos} from "../../public/multiplayer/main.js"
 import Palavra from './Palavra.js'
 
 class String_bomb extends Palavra{

@@ -10,6 +10,9 @@ const string_bomb = String_bomb;
 import Mensagem from "../../src/Mensagem.js";
 const mensagem = Mensagem;
 
+// metodo que chama o modal
+import {mostrarResultado} from "./modal.js";
+
 (async function carregarFonte() {
     const font = new FontFace("PS2P", "url(../PressStart2P-Regular.ttf)")
     await font.load();
@@ -188,15 +191,13 @@ async function contagemRegress(tempo){
 let palavra1; // palavra1 será a palavra que desce, ainda não foi criado o objeto
 async function iniciar() {
     JOGO_EM_CURSO = true;
-    contador_erros.textContent = "0"
-    contador_pontos.textContent = "000000"
     updateAPI();
     await contagemRegress(5);
     bombs.length = 0; // zera as bombs
     palavra1 = new palavra();  
     palavra1.init()
     desligarInput(false)
-    tempo_inicial = 60
+    tempo_inicial = 20
     startTimer();
     animate(); 
 }     
@@ -306,11 +307,14 @@ Botao_iniciar.addEventListener('click', () => {
 
 async function finalizarPartida(){
     JOGO_EM_CURSO = false
-    palavra1.init();
-    Botao_iniciar.hidden = false // mostra o botao iniciar denovo
+    tempo_inicial = -1; // setado para -1 para nao criar um laço infinito no cronometro
+    timer.innerText = 0;           // zera o timer
     desligarInput(true); // desliga o textfield
     Palavra_INPUT.value = ""        // limpa o input
-    timer.innerText = 0;           // zera o timer
-    tempo_inicial = -1; // setado para -1 para nao criar um laço infinito no cronometro
+    console.log(contador_erros.textContent, contador_erros.textContent); 
+    mostrarResultado(contador_erros.textContent, contador_pontos.textContent); 
+    contador_erros.textContent = "0"
+    contador_pontos.textContent = "000000"
+    Botao_iniciar.hidden = false // mostra o botao iniciar denovo
     clearInterval(intervalo_timer);
 }

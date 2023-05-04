@@ -1,6 +1,6 @@
 // importando variaveis e métodos do public/main.js. 
 import { socket, ctx, canvas, desligarInput, valor_API, Palavra_INPUT, Soma_erro, Soma_pontos,
-mostrarMsg, getPosicaoAleatoria, esperarSegundos} from "../../public/main.js"
+mostrarMsg, getPosicaoAleatoria, esperarSegundos} from "../../public/multiplayer/main.js"
 
 // classe palavra, está sendo responsavel por desenhar a palavra
 // no canvas, o alinhamento começa pelo canto superior esquerdo, que equivale a X = 0 e Y = 0

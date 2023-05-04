@@ -1,4 +1,4 @@
-import { ctx, mensagens } from '../../public/main.js';
+import { ctx, mensagens } from '../../public/multiplayer/main.js';
 
 // a mensagem será desenhada no canvas com base nos parametros passados no construtor
 class Mensagem{
