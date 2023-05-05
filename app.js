@@ -35,3 +35,7 @@ io.on("connection", (socket) => {
 app.get('/', (req, res) => {
     res.sendFile(__dirname +'/public/multiplayer/index.html');
 });
+
+app.get('/fundo', (req, res) => {
+    res.sendFile(__dirname +'/public/fundo.html');
+});
