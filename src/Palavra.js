@@ -52,7 +52,7 @@ class Palavra{
             if(this.index_atual == this.list_letras.length){
                 if(this.list_acertos.length == this.list_letras.length){
                     Soma_pontos(10);
-                    mostrarMsg(this.x, this.y, "+10", 25,"124,252,1", "up")
+                    mostrarMsg(this.x, this.y, "+10", 45,"124,252,1", "up")
                     socket.emit("P_bomb", this.text);
                 }
                 Palavra_INPUT.dispatchEvent(new Event('keypress'));     // aciona um keypress no input
@@ -94,7 +94,7 @@ class Palavra{
                 // desenha cada letra da palavra
                 ctx.beginPath()
                 //ctx.font = 'bold 35px PS2P'
-                ctx.font = 'bold 25px PS2P'
+                ctx.font = '60px PS2P'
                 ctx.fillStyle = 'black';
                 ctx.textBaseLine = 'top'
                 ctx.fillText(this.list_letras[i], x_origin, this.y)

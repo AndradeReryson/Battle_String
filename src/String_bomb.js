@@ -44,7 +44,7 @@ class String_bomb extends Palavra{
             if(this.index_atual == this.list_letras.length){
                 if(this.list_acertos.length == this.list_letras.length){
                     Soma_pontos(10);
-                    mostrarMsg(this.x, this.y, "+10", 25,"124,252,1", "up")
+                    mostrarMsg(this.x, this.y, "+10", 45,"124,252,1", "up")
                 }
                 Palavra_INPUT.dispatchEvent(new Event('keypress'));     // 
             }
@@ -79,7 +79,7 @@ class String_bomb extends Palavra{
                 }
 
                 ctx.beginPath()
-                ctx.font = 'bold 25px PS2P'
+                ctx.font = '60px PS2P'
                 ctx.fillStyle = 'orange';
                 ctx.strokeStyle = 'black'
                 ctx.lineWidth = 5
