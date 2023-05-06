@@ -93,8 +93,8 @@ class Palavra{
 
                 // desenha cada letra da palavra
                 ctx.beginPath()
-                //ctx.font = 'bold 35px PS2P'
-                ctx.font = '60px PS2P'
+                //ctx.font = 'bold 35px VT323'
+                ctx.font = '60px VT323'
                 ctx.fillStyle = 'black';
                 ctx.textBaseLine = 'top'
                 ctx.fillText(this.list_letras[i], x_origin, this.y)

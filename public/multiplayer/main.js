@@ -14,7 +14,7 @@ const mensagem = Mensagem;
 import {mostrarResultado} from "./modal.js";
 
 (async function carregarFonte() {
-    const font = new FontFace("PS2P", "url(../VT323-Regular.ttf)")
+    const font = new FontFace("VT323", "url(../VT323-Regular.ttf)")
     await font.load();
     document.fonts.add(font);
 })();
@@ -167,7 +167,7 @@ export function desligarInput(b){
 // imrpime a contagem regressiva e segura o program pela quantidade de segundos determina
 async function contagemRegress(tempo){
     ctx.beginPath()
-    ctx.font = '150px PS2P'
+    ctx.font = '150px VT323'
     ctx.fillStyle = 'black';
     ctx.textBaseLine = 'top'
     

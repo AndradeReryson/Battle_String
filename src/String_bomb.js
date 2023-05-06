@@ -79,7 +79,7 @@ class String_bomb extends Palavra{
                 }
 
                 ctx.beginPath()
-                ctx.font = '60px PS2P'
+                ctx.font = '60px VT323'
                 ctx.fillStyle = 'orange';
                 ctx.strokeStyle = 'black'
                 ctx.lineWidth = 5

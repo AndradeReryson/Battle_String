@@ -6,7 +6,7 @@ const particlesArray = [];
 const particlesAux = [];
 
 (async function carregarFonte() {
-    const font = new FontFace("PS2P", "url(../VT323-Regular.ttf)")
+    const font = new FontFace("VT323", "url(../VT323-Regular.ttf)")
     await font.load();
     document.fonts.add(font);
 })();
@@ -47,18 +47,18 @@ class particle {
         this.x += this.speedX;
         this.y += this.speedY;
         
-        if(this.size > 70){
-            this.size += 0.25;
+        if(this.size > 80){
+            this.size += 0.30;
             this.opacity -= 0.005;
         } else {
-            this.size += 0.30;
+            this.size += 0.35;
         }
     }
 
     draw(){
         // só vai desenhar se o objeto estiver se movendo, neste caso, todos eles iniciam se movendo por padrão, então, caso sejam clicados, fazer o pop() e perdem movimento.
         ctx.beginPath();
-        ctx.font = this.size+'px PS2P'
+        ctx.font = this.size+'px VT323'
         ctx.fillStyle = 'rgba(255,255,255,'+this.opacity+')'
         ctx.textBaseLine = 'top'
         ctx.fillText(this.letra, this.x, this.y)
@@ -80,7 +80,7 @@ class particle_aux {
     draw(){
         // só vai desenhar se o objeto estiver se movendo, neste caso, todos eles iniciam se movendo por padrão, então, caso sejam clicados, fazer o pop() e perdem movimento.
         ctx.beginPath();
-        ctx.font = this.size+'px PS2P'
+        ctx.font = this.size+'px VT323'
         ctx.fillStyle = 'rgba(255,255,255,'+this.opacity+')'
         ctx.textBaseLine = 'top'
         ctx.fillText(this.letra, this.x, this.y)
@@ -89,13 +89,18 @@ class particle_aux {
 
 class titulo {
     constructor(){
-        this.x = Math.random() * ((canvas.width - canvas.width/10) - canvas.width/10 + 1) + canvas.width/10
-        this.y = Math.random() * ((canvas.height - canvas.height/10) - canvas.height/10 + 1) +  canvas.height/10
-        
         this.opacity = 0.9
         this.size = 0
         this.palavra = "BattleString"
-        
+        ctx.font = '30px VT323'
+        this.tamPalavra = ctx.measureText("BattleString").width
+
+        this.x = canvas.width/2 - this.tamPalavra
+        this.y = Math.random() * ((canvas.height - canvas.height/10) - canvas.height/10 + 1) +  canvas.height/10
+
+        this.speedY = 0.02;
+
+        /*
         if(this.x > canvas.width/2){
             this.speedX = (this.x - canvas.width/2)/1900;
             this.speedY = 0.02;
@@ -103,22 +108,24 @@ class titulo {
             this.speedX = -((canvas.width/2 - this.x)/1900 );
             this.speedY = -(0.02);
         }
+        */
 
         this.onScreen = true;
     }
 
     update(){
-        this.x += this.speedX;
+        
         this.y += this.speedY;
         
 
         if(this.opacity > 0){
             
             if(this.size > 60){
-                this.size += 0.15;
-                this.opacity -= 0.01;
+                this.size += 0.10;
+                this.opacity -= 0.005;
             } else {
                 this.size += 0.20;
+                this.x -= 0.20;
             }
             
         } else {
@@ -129,19 +136,19 @@ class titulo {
     draw(){
         // só vai desenhar se o objeto estiver se movendo, neste caso, todos eles iniciam se movendo por padrão, então, caso sejam clicados, fazer o pop() e perdem movimento.
         ctx.beginPath();
-        ctx.font = this.size+'px PS2P'
+        ctx.font = this.size+'px VT323'
         ctx.textBaseLine = 'top'
 
-        ctx.lineWidth = this.opacity * 3
+        ctx.lineWidth = this.opacity * 4
         ctx.fillStyle = 'rgba(30,30,255,'+this.opacity+')'
         ctx.strokeStyle = 'rgba(30, 30, 255,'+this.opacity+')';
-        ctx.fillText(this.palavra, this.x-3, this.y-2)
-        ctx.strokeText(this.palavra, this.x-3, this.y-2)
+        ctx.fillText(this.palavra, this.x-4, this.y-2)
+        ctx.strokeText(this.palavra, this.x-4, this.y-2)
 
         ctx.fillStyle = 'rgba(255,30,30,'+this.opacity+')'
         ctx.strokeStyle = 'rgba(255, 30, 30,'+this.opacity+')';
-        ctx.fillText(this.palavra, this.x+3, this.y+2)
-        ctx.strokeText(this.palavra, this.x+3, this.y+2)
+        ctx.fillText(this.palavra, this.x+4, this.y+2)
+        ctx.strokeText(this.palavra, this.x+4, this.y+2)
 
         ctx.lineWidth = 1
         ctx.fillStyle = 'rgba(255,255,255,'+this.opacity+')'
@@ -179,7 +186,7 @@ function desenharTitulo(){
 }
 
 (async () => {
-    const interv_title = setInterval(desenharTitulo, 30000) 
+    const interv_title = setInterval(desenharTitulo, 5000) 
     await esperarSegundos(2)
 })();
 
