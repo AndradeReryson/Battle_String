@@ -11,7 +11,7 @@
       &emsp; &emsp; - descritivos, <br>
       &emsp; &emsp; - diagramas de atividade, <br>
       &emsp; &emsp; - VCPs, <br>
-     &emsp;  &emsp; - cartões CRC <br>
+      &emsp; &emsp; - cartões CRC <br>
       &emsp; &emsp; - terminar os mockups da interface <br>
   <br>
    &emsp; <b style="font-size:20px;"> Banco de Dados </b>  <br>
@@ -22,4 +22,7 @@
      &emsp;  &emsp; - lista de atributos de cada entidade<br>
    <br>
 -> programar as telas estáticas do mockup <br>
+-> pitch do projeto <br>
+-> banner <br>
+-> 
     
