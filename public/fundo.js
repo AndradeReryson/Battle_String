@@ -47,18 +47,18 @@ class particle {
         this.x += this.speedX;
         this.y += this.speedY;
         
-        if(this.size > 90){
-            this.size += 0.10;
+        if(this.size > 70){
+            this.size += 0.25;
             this.opacity -= 0.005;
         } else {
-            this.size += 0.15;
+            this.size += 0.30;
         }
     }
 
     draw(){
         // só vai desenhar se o objeto estiver se movendo, neste caso, todos eles iniciam se movendo por padrão, então, caso sejam clicados, fazer o pop() e perdem movimento.
         ctx.beginPath();
-        ctx.font = 'bold '+this.size+'px PS2P'
+        ctx.font = this.size+'px PS2P'
         ctx.fillStyle = 'rgba(255,255,255,'+this.opacity+')'
         ctx.textBaseLine = 'top'
         ctx.fillText(this.letra, this.x, this.y)
@@ -80,7 +80,7 @@ class particle_aux {
     draw(){
         // só vai desenhar se o objeto estiver se movendo, neste caso, todos eles iniciam se movendo por padrão, então, caso sejam clicados, fazer o pop() e perdem movimento.
         ctx.beginPath();
-        ctx.font = 'bold '+this.size+'px PS2P'
+        ctx.font = this.size+'px PS2P'
         ctx.fillStyle = 'rgba(255,255,255,'+this.opacity+')'
         ctx.textBaseLine = 'top'
         ctx.fillText(this.letra, this.x, this.y)
@@ -97,35 +97,61 @@ class titulo {
         this.palavra = "BattleString"
         
         if(this.x > canvas.width/2){
-            this.speedX = (this.x - canvas.width/2)/1500;
+            this.speedX = (this.x - canvas.width/2)/1900;
             this.speedY = 0.02;
         } else {
-            this.speedX = -((canvas.width/2 - this.x)/1500 );
+            this.speedX = -((canvas.width/2 - this.x)/1900 );
             this.speedY = -(0.02);
         }
+
+        this.onScreen = true;
     }
 
     update(){
         this.x += this.speedX;
         this.y += this.speedY;
         
-        if(this.size > 70){
-            this.size += 0.05;
-            this.opacity -= 0.005;
+
+        if(this.opacity > 0){
+            
+            if(this.size > 60){
+                this.size += 0.15;
+                this.opacity -= 0.01;
+            } else {
+                this.size += 0.20;
+            }
+            
         } else {
-            this.size += 0.10;
+            this.onScreen = false;
         }
     }
 
     draw(){
         // só vai desenhar se o objeto estiver se movendo, neste caso, todos eles iniciam se movendo por padrão, então, caso sejam clicados, fazer o pop() e perdem movimento.
         ctx.beginPath();
-        ctx.font = 'bold '+this.size+'px PS2P'
-        ctx.fillStyle = 'rgba(50,50,255,'+this.opacity+')'
+        ctx.font = this.size+'px PS2P'
         ctx.textBaseLine = 'top'
+
+        ctx.lineWidth = this.opacity * 3
+        ctx.fillStyle = 'rgba(30,30,255,'+this.opacity+')'
+        ctx.strokeStyle = 'rgba(30, 30, 255,'+this.opacity+')';
+        ctx.fillText(this.palavra, this.x-3, this.y-2)
+        ctx.strokeText(this.palavra, this.x-3, this.y-2)
+
+        ctx.fillStyle = 'rgba(255,30,30,'+this.opacity+')'
+        ctx.strokeStyle = 'rgba(255, 30, 30,'+this.opacity+')';
+        ctx.fillText(this.palavra, this.x+3, this.y+2)
+        ctx.strokeText(this.palavra, this.x+3, this.y+2)
+
+        ctx.lineWidth = 1
+        ctx.fillStyle = 'rgba(255,255,255,'+this.opacity+')'
         ctx.fillText(this.palavra, this.x, this.y)
 
     }
+}
+
+class star{
+    
 }
 
 async function init(){
@@ -139,21 +165,34 @@ init();
 async function desenharLetra(){
     particlesArray.push(new particle());
     particlesArray.push(new particle());
-    await esperarSegundos(0.6);
+    await esperarSegundos(0.8);
     desenharLetra()
 }
 
 desenharLetra();
 
 var title;
-async function desenharTitulo(){
+function desenharTitulo(){
     title = new titulo();
+    console.log('a')
+    title.onScreen = true;
 }
 
-desenharTitulo();
+(async () => {
+    const interv_title = setInterval(desenharTitulo, 30000) 
+    await esperarSegundos(2)
+})();
 
 
 async function handleParticles(){
+
+    if(title != null){
+        if(title.onScreen == true){
+            title.draw();
+            title.update();
+        }
+    } 
+
     for(let i = 0; i < particlesAux.length; i++){
         particlesAux[i].draw();
     }
@@ -168,11 +207,6 @@ async function handleParticles(){
         }
     }
 
-    title.draw();
-    title.update();
-    if(title.opacity <= 0){
-        desenharTitulo();
-    }
 }
 
 function animate(){
