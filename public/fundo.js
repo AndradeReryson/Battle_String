@@ -95,7 +95,7 @@ class titulo {
         ctx.font = '30px VT323'
         this.tamPalavra = ctx.measureText("BattleString").width
 
-        this.x = canvas.width/2 - this.tamPalavra
+        this.x = canvas.width/2 - this.tamPalavra/2
         this.y = Math.random() * ((canvas.height - canvas.height/10) - canvas.height/10 + 1) +  canvas.height/10
 
         this.speedY = 0.02;
@@ -120,12 +120,13 @@ class titulo {
 
         if(this.opacity > 0){
             
-            if(this.size > 60){
+            if(this.size > 80){
                 this.size += 0.10;
+                this.x -= 0.10
                 this.opacity -= 0.005;
             } else {
                 this.size += 0.20;
-                this.x -= 0.20;
+                this.x -= 0.20 
             }
             
         } else {
@@ -186,7 +187,7 @@ function desenharTitulo(){
 }
 
 (async () => {
-    const interv_title = setInterval(desenharTitulo, 5000) 
+    const interv_title = setInterval(desenharTitulo, 30000) 
     await esperarSegundos(2)
 })();
 
