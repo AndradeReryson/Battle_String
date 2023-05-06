@@ -2,9 +2,10 @@
 
 <b> Para rodar o game, usem o node ou nodemon para executar o app.js, o game vai abrir no localhost:8080 </b>
 
-<b style="font-size:30px;"> Lista de afazeres </b> <br>
+<h1> <b>Lista de afazeres </b> <h1> <br> 
+<br>
 -> iniciar a documentação do projeto <br>
- &emsp; <b style="font-size:20px;"> Eng. Software </b> <br>
+ &emsp; <b> Eng. Software </b> <br>
       &emsp; &emsp; - requisitos funcionais <br>
       &emsp; &emsp; - caso de uso geral, <br>
       &emsp; &emsp; - descritivos, <br>
@@ -13,7 +14,7 @@
       &emsp; &emsp; - cartões CRC <br>
       &emsp; &emsp; - terminar os mockups da interface <br>
   <br>
-   &emsp; <b style="font-size:20px;"> Banco de Dados </b>  <br>
+   &emsp; <b> Banco de Dados </b> <br>
      &emsp;  &emsp; - MER/DER, <br>
      &emsp;  &emsp; - modelo lógico, <br>
      &emsp;  &emsp; - modelo físico, <br>
@@ -23,10 +24,10 @@
 -> programar as telas estáticas do mockup <br>
 -> pitch do projeto <br>
 -> banner <br>
-
-<b> não relacionado <b>
--> portfolio de projetos
--> Tec. Prog:  explicar metodos do arrayLsit
--> Web II:     site usando a API do Chatgpt
--> Eng II:     Prova sexta-feira
+<br>
+<h2><b> não relacionado <b></h2> <br>
+-> portfolio de projetos <br>
+-> Tec. Prog:  explicar metodos do arrayLsit <br>
+-> Web II:     site usando a API do Chatgpt <br>
+-> Eng II:     Prova sexta-feira <br>
     
