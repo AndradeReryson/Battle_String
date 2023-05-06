@@ -4,21 +4,22 @@
 
 <b> Lista </b>
 
--> iniciar a documentação do projeto
-  <b style="font-size:20px;"> Eng. Software </b> 
-    - caso de uso geral, 
-    - descritivos, 
-    - diagramas de atividade, 
-    - VCPs, 
-    - cartões CRC 
-    - terminar os mockups da interface
-  
-  <b style="font-size:20px;"> Banco de Dados </b>  
-    - MER/DER, 
-    - modelo lógico, 
-    - modelo físico, 
-    - lista de entidades, 
-    - lista de atributos de cada entidade
-
--> programar as telas estáticas do mockup
+-> iniciar a documentação do projeto <br>
+  <b style="font-size:20px;"> Eng. Software </b> <br>
+    - requisitos funcionais <br>
+    - caso de uso geral, <br>
+    - descritivos, <br>
+    - diagramas de atividade, <br>
+    - VCPs, <br>
+    - cartões CRC <br>
+    - terminar os mockups da interface <br>
+  <br>
+  <b style="font-size:20px;"> Banco de Dados </b>  <br>
+    - MER/DER, <br>
+    - modelo lógico, <br>
+    - modelo físico, <br>
+    - lista de entidades, <br>
+    - lista de atributos de cada entidade<br>
+   <br>
+-> programar as telas estáticas do mockup <br>
     
