@@ -1,12 +1,12 @@
-# Battle_String
+<h1> Battle_String </h1>
 
 <b> Para rodar o game, usem o node ou nodemon para executar o app.js, o game vai abrir no localhost:8080 </b>
 
-<h1> <b>Lista de afazeres </b> <h1> <br> 
-<br>
--> iniciar a documentação do projeto <br>
+<h2> <b>Lista de Afazeres </b> </h2>
+-> iniciar a documentação do projeto <br><br>
+
  &emsp; <b> Eng. Software </b> <br>
-      &emsp; &emsp; - requisitos funcionais <br>
+      &emsp; &emsp; - requisitos funcionais <br> 
       &emsp; &emsp; - caso de uso geral, <br>
       &emsp; &emsp; - descritivos, <br>
       &emsp; &emsp; - diagramas de atividade, <br>
@@ -24,8 +24,8 @@
 -> programar as telas estáticas do mockup <br>
 -> pitch do projeto <br>
 -> banner <br>
-<br>
-<h2><b> não relacionado <b></h2> <br>
+
+<h2> <b> Não Relacionado </b> </h2> 
 -> portfolio de projetos <br>
 -> Tec. Prog:  explicar metodos do arrayLsit <br>
 -> Web II:     site usando a API do Chatgpt <br>
