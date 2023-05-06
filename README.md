@@ -2,7 +2,7 @@
 
 <b> Para rodar o game, usem o node ou nodemon para executar o app.js, o game vai abrir no localhost:8080 </b>
 
-<b style="font-size:30px;> Lista de afazeres </b> <br>
+<b style="font-size:30px;"> Lista de afazeres </b> <br>
 -> iniciar a documentação do projeto <br>
  &emsp; <b style="font-size:20px;"> Eng. Software </b> <br>
       &emsp; &emsp; - requisitos funcionais <br>
