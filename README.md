@@ -2,8 +2,7 @@
 
 <b> Para rodar o game, usem o node ou nodemon para executar o app.js, o game vai abrir no localhost:8080 </b>
 
-<b> Lista </b>
-
+<b> Lista de afazeres </b>
 -> iniciar a documentação do projeto <br>
  &emsp; <b style="font-size:20px;"> Eng. Software </b> <br>
       &emsp; &emsp; - requisitos funcionais <br>
@@ -24,5 +23,10 @@
 -> programar as telas estáticas do mockup <br>
 -> pitch do projeto <br>
 -> banner <br>
--> 
+
+<b> não relacionado <b>
+-> portfolio de projetos
+-> Tec. Prog:  explicar metodos do arrayLsit
+-> Web II:     site usando a API do Chatgpt
+-> Eng II:     Prova sexta-feira
     
