@@ -1,0 +1,73 @@
+.texto-25{
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+    line-height:normal
+}
+.texto-20{
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    line-height:normal
+}
+
+
+.botao-visitante{
+    display: grid;
+    place-items: center;
+    border-color: black;
+    width: 190px;
+    height: 58px;
+    border-radius: 10px;
+    background-color:#D9D9D9;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+.botao-entrar{
+    display: grid;
+    place-items: center;
+    display: center;
+    border-color: black;
+    width: 190px;
+    height: 58px;
+    border-radius: 10px;
+    background-color:#75FC72;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;    
+}
+
+.linha-botao-visitante{
+    margin-top: 100px;
+}
+.linha-botao-entrar{
+    margin-bottom: 100px;
+}
+
+.linha-bemvindo{
+    margin-top: 50px;
+}
+
+.text-start{
+    margin-bottom: 80px;
+    margin-top: 250px;
+}
+
+.img-menor{
+    width: 55%;
+    margin: 0 auto;
+}
+
+.vertical-flip {
+    background-image: linear-gradient(to top, #1C1C1C, #000000);
+  }
+
+  #canvas1{
+    position: absolute;
+    background-image: linear-gradient(to top, #07000c, #06000c, #04000c, #03000c, #02000c, #02000b, #030009, #030008, #040005, #040003, #020001, #000000);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
