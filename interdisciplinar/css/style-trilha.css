@@ -1,0 +1,180 @@
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff; /* Define a cor do texto dos links no navbar */
+}
+
+.btn-responsive {
+  max-width: 100%;
+  width: auto;
+  font-size: 10px;
+    
+}
+
+.btn-primary2 {
+  background-color:rgb(100, 100, 100);
+  border-color: #2D2D2E;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #2D2D2E;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-color: #2D2D2E;
+}
+
+.btn-primary.active,
+.btn-primary:focus {
+  background-color: rgb(3, 89, 255);
+  box-shadow: 2px 4px 6px rgba(50, 120, 255, 0.89);
+  outline: none;
+  border-color: rgb(3, 89, 255);
+}
+
+.btn-primary.active::after,
+.btn-primary:focus::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #2D2D2E; 
+  opacity: 0.3;
+}
+
+.offcanvas-body .btn-primary:not(.active):hover {
+  box-shadow: 2px 4px 10px rgba(50, 120, 255, 0.89);
+}
+
+.offcanvas-body .btn-primary.active {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.offcanvas-body .btn-primary.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #0359FF;
+  opacity: 0.5;
+}
+
+.campo-filtro{
+  height: 120px;
+}
+
+.press-start {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.press-start-15px {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+}
+
+.press-start-15px-border {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+ 
+  color: white; /* Define a cor do texto */
+  -webkit-text-stroke: 1.5px black; /* Define o contorno com 2px de espessura na cor preta */
+  
+}
+
+.press-start-20px {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+}
+
+.press-start-25px {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 25px;
+}
+
+.custom-navbar {
+  background-color: #2D2D2E;
+}
+
+
+.procurarTrilha {
+  border:3px solid #050505;
+  border-bottom-width: 6px;
+  background-color: #2D2D2E;
+  padding: 8px;
+}
+
+.container-trilha{
+  margin-top: 60px;
+  height: 600px;
+}
+
+.trilha-bg{
+  border:3px solid #050505;
+  background-color: #2D2D2E;
+  padding: 8px;
+  height: 100px;
+}
+
+.background {
+  background-color: #1C1C1C;
+}
+
+.offcanvas{
+  background-color: #212428;
+}
+
+.logo-login{
+  position: relative;
+  z-index: 20; 
+}
+
+.login-bg {
+  background-color: #0359FF;
+  height: 550px; /* Defina a altura desejada */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-login {
+  width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.logo-login img {
+  width: 100%; /* Ocupa toda a largura disponível */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.logo, .navbar{
+  position: relative;
+  z-index: 9999; 
+}
+
+.btn-buscar{
+  padding: 9px 15px; /* Define o espaçamento interno do botão */
+  background-color: #75FC72; /* Define a cor de fundo do botão */
+  color: #000; /* Define a cor do texto do botão */
+  border: none; /* Remove a borda do botão */
+  border-radius: 5px; /* Define a borda arredondada do botão */
+  cursor: pointer; /* Altera o cursor do mouse ao passar pelo botão */
+}
+
+.btn-iniciarTrilha{
+  
+  border-right: 3px solid #050505;
+  position: relative;
+  background-color: #75FC72; /* Define a cor de fundo do botão */
+  color: #000; /* Define a cor do texto do botão */
+  cursor: pointer; /* Altera o cursor do mouse ao passar pelo botão */
+}
+
+.btn-iniciarTrilha .botao {
+  position: absolute; /* Define o posicionamento absoluto para o SVG */
+  top: 0;
+  left: 0;
+  width: 100%; /* Define a largura como 100% */
+  height: 100%; /* Define a altura como 100% */
+}
+

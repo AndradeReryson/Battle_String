@@ -1,0 +1,234 @@
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff; /* Define a cor do texto dos links no navbar */
+}
+
+.btn-responsive {
+  max-width: 100%;
+  width: auto;
+  font-size: 10px;  
+}
+
+.btn-primary2 {
+  background-color:rgb(100, 100, 100);
+  border-color: #2D2D2E;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #2D2D2E;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-color: #2D2D2E;
+}
+
+.btn-primary.active,
+.btn-primary:focus {
+  background-color: rgb(3, 89, 255);
+  box-shadow: 2px 4px 6px rgba(50, 120, 255, 0.89);
+  outline: none;
+  border-color: rgb(3, 89, 255);
+}
+
+.btn-primary.active::after,
+.btn-primary:focus::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #2D2D2E; 
+  opacity: 0.3;
+}
+
+.offcanvas-body .btn-primary:not(.active):hover {
+  box-shadow: 2px 4px 10px rgba(50, 120, 255, 0.89);
+}
+
+.offcanvas-body .btn-primary.active {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.offcanvas-body .btn-primary.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #0359FF;
+  opacity: 0.5;
+}
+
+.press-start {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.press-start-15px {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+}
+
+.press-start-10px-border {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  color: white; /* Define a cor do texto */
+  -webkit-text-stroke: 0.8px black; /* Define o contorno com 2px de espessura na cor preta */
+}
+
+
+.press-start-15px-border {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+  color: white; /* Define a cor do texto */
+  -webkit-text-stroke: 1.5px black; /* Define o contorno com 2px de espessura na cor preta */
+}
+
+.press-start-20px-border {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+  color: white; /* Define a cor do texto */
+  -webkit-text-stroke: 1.5px black; /* Define o contorno com 2px de espessura na cor preta */
+}
+
+.press-start-20px {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+}
+
+.press-start-25px {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 25px;
+}
+
+.press-start-25px-border {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 25px;
+  color: white; /* Define a cor do texto */
+  -webkit-text-stroke: 2px black; /* Define o contorno com 2px de espessura na cor preta */
+}
+
+.custom-navbar {
+  background-color: #2D2D2E;
+}
+
+.background {
+  background-color: #1C1C1C;
+}
+
+.offcanvas{
+  background-color: #212428;
+}
+
+.logo-login{
+  position: relative;
+  z-index: 20; 
+}
+
+.login-bg {
+  background-color: #0359FF;
+  height: 550px; /* Defina a altura desejada */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-login {
+  width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.logo-login img {
+  width: 100%; /* Ocupa toda a largura disponível */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.logo, .navbar{
+  position: relative;
+  z-index: 9999; 
+}
+/* -------------------------------------------------------------------- */
+/* --------------------Container-Lista-de-Jogadores-------------------- */
+/* -------------------------------------------------------------------- */
+
+.container-jogadores-online{
+  border:3px solid #050505;
+  border-bottom-width: 6px;
+  background-color: #1C1C1C;
+  height: 540px;
+}
+
+.bg-container-jogador{
+  border:3px solid #050505;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background-color: #2D2D2E;
+  padding: 0px 0px 0px 15px;
+  height: 80px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.bg-container-status{
+  border:3px solid #050505;
+  border-bottom: none;
+  background-color: #62C661;
+  padding: 8px;
+  height: 40px;
+}
+
+.bg-container-resultado{
+  border:3px solid #050505;
+  border-bottom-width: 6px;
+  background-color: #2D2D2E;
+  padding: 8px;
+  height: 150px;
+}
+
+.bg-T01{
+  background-color: brown;
+  border: 3px solid black;
+  border-bottom-width: 6px;
+}
+
+.bg-T02{
+  background-color: #0C480B;
+  border: 3px solid black;
+  border-bottom-width: 6px;
+}
+
+.botao-cancelar{
+  background-color: #A32B24;
+  border: 3px solid black;
+  border-bottom-width: 6px;
+  height: 70px;
+  margin-bottom: 30px;
+}
+
+.botao-buscar-partida{
+  background-color: #62C661;
+  border: 3px solid black;
+  border-bottom-width: 6px;
+  height: 70px;
+}
+
+.num-jogador{
+  background-color: aqua;
+  width: 75px;
+  height: 50px;
+  border: 3px solid black;
+  border-bottom-width: 6px;
+}
+
+.col-custom-80px{
+  flex: 0 0 80px;
+}
+
+.col-custom-100px{
+  flex: 0 0 160px;
+}
+
+.col-custom-120px{
+  flex: 0 0 120px;
+}
+

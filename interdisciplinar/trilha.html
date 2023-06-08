@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style-trilha.css" />
+    <title>Battle_String</title>
+  </head>
+  <body class="background">
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand logo" href="#"><img src="./img/logo.svg" alt="logotipo" /></a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto ali">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><img src="./img/modoEscuro.svg" alt="configuracoes" /></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><img src="./img/configuracoes.svg" alt="configuracoes" /></a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary2 w-100" href="#" role="button">Username</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><img src="./img/perfil.svg" alt="perfil" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="container">
+      <!-- Container - Procurar Trilha -->
+      <div class="row container-procurar-trilha">
+        <div class="container-fluid campo-filtro justify-content-center mt-4" style="width: 100%">
+          <!-- Titulo -->
+          <div class="row">
+            <label for="exampleFormControlInput1" class="form-label press-start-25px text-light">Procurar trilha</label>
+          </div>
+          <!-- linha que contem as colunas -->
+          <div class="row procurarTrilha h-100">
+            <!-- coluna de escolha da linguagem -->
+            <div class="col-2 justify-content-center align-self-end">
+              <label for="exampleFormControlInput1" class="form-label press-start-15px text-light mb-2">Linguagem</label>
+              <select class="form-select form-select-lg press-start-15px border-light mb-3" aria-label=".form-select-lg example">
+                <option selected>html</option>
+                <option value="1">Python</option>
+                <option value="2">Java</option>
+                <option value="3">javascript</option>
+                <option value="4">Go</option>
+                <option value="5">Css</option>
+              </select>
+            </div>
+            <!-- Coluna da escolha da trilha -->
+            <div class="col justify-content-center align-self-end">
+              <label for="exampleFormControlInput1" class="form-label press-start-15px text-light mb-2">Nome da Trilha</label>
+              <input type="text" class="form-control-lg w-100 press-start-15px border-0 mb-3" id="exampleFormControlInput1" placeholder="Estrutura básica do html" />
+            </div>
+            <!-- Coluna de filtro -->
+            <div class="col-2 justify-content-center align-self-end">
+              <label for="exampleFormControlInput1" class="form-label press-start-15px text-light mb-2">Filtrar:</label>
+              <select class="form-select form-select-lg press-start-15px border-light mb-3" aria-label=".form-select-lg example">
+                <option selected>Concluida</option>
+                <option value="1">Em andamento</option>
+                <option value="2">Não iniciado</option>
+              </select>
+            </div>
+            <!-- Coluna do botão ir -->
+            <div class="col-1 d-flex justify-content-center align-self-end me-3 ms-3">
+              <a class="btn btn-buscar press-start-15px mb-3" href="#" role="button">Buscar</a>
+            </div>
+            <!-- ------------------ -->
+          </div>
+        </div>
+      </div>
+      <!-- Container - Procurar Trilha  -->
+      <!-- --------------------------------------------- -->
+      <!-- Container - Trilha Estrutura básica do html-->
+      <div class="row container-trilha">
+        <div class="container-fluid">
+          <!-- Titulo -->
+          <div class="row">
+            <label for="exampleFormControlInput1" class="form-label press-start-25px text-light h-100">trilhas</label>
+          </div>
+          <!-- Botao - Nome - Acurácia - Tempo - Erros -->
+          <div class="row trilha-bg justify-content-between p-0">
+            <!-- Botao iniciar -->
+            <div class="col-1 btn-iniciarTrilha">
+              <a class="press-start-15px align-content-center botao" href="#" role="button"><img class="botao" src="./img/Frame 2.svg" alt="jogar" /></a>
+            </div>
+            <!-- Nome da trilha -->
+            <div class="col-5 text-start d-flex flex-column justify-content-center align-self-center ms-5">
+              <div class="nome mb-3 press-start-15px text-light">Nome</div>
+              <div class="nome press-start-15px-border text-light">Estrutura básica do html</div>
+            </div>
+            <!-- Acuracia -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Acurácia</div>
+              <div class="nome press-start-15px-border text-light">58%</div>
+            </div>
+            <!-- Tempo -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Tempo</div>
+              <div class="nome press-start-15px-border text-light">05:22</div>
+            </div>
+            <!-- Erros -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Erros</div>
+              <div class="nome press-start-15px-border text-light">50</div>
+            </div>
+          </div>
+          <!-- Container - Formulários em HTML -->
+          <!-- --------------------------------------------- -->
+          <!-- Botao - Nome - Acurácia - Tempo - Erros -->
+          <div class="row trilha-bg justify-content-between p-0">
+            <!-- Botao iniciar -->
+            <div class="col-1 btn-iniciarTrilha">
+              <a class="press-start-15px align-content-center botao" href="#" role="button"><img class="botao" src="./img/Frame 2.svg" alt="jogar" /></a>
+            </div>
+            <!-- Nome da trilha -->
+            <div class="col-5 text-start d-flex flex-column justify-content-center align-self-center ms-5">
+              <div class="nome mb-3 press-start-15px text-light">Nome</div>
+              <div class="nome press-start-15px-border text-light">Formulários em HTML</div>
+            </div>
+            <!-- Acuracia -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Acurácia</div>
+              <div class="nome press-start-15px-border text-light">58%</div>
+            </div>
+            <!-- Tempo -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Tempo</div>
+              <div class="nome press-start-15px-border text-light">05:22</div>
+            </div>
+            <!-- Erros -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Erros</div>
+              <div class="nome press-start-15px-border text-light">50</div>
+            </div>
+          </div>
+          <!-- Container - Estilização com CSS -->
+          <!-- --------------------------------------------- -->
+          <!-- Botao - Nome - Acurácia - Tempo - Erros -->
+          <div class="row trilha-bg justify-content-between p-0">
+            <!-- Botao iniciar -->
+            <div class="col-1 btn-iniciarTrilha">
+              <a class="press-start-15px align-content-center botao" href="#" role="button"><img class="botao" src="./img/Frame 2.svg" alt="jogar" /></a>
+            </div>
+            <!-- Nome da trilha -->
+            <div class="col-5 text-start d-flex flex-column justify-content-center align-self-center ms-5">
+              <div class="nome mb-3 press-start-15px text-light">Nome</div>
+              <div class="nome press-start-15px-border text-light">Estilização com CSS</div>
+            </div>
+            <!-- Acuracia -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Acurácia</div>
+              <div class="nome press-start-15px-border text-light">58%</div>
+            </div>
+            <!-- Tempo -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Tempo</div>
+              <div class="nome press-start-15px-border text-light">05:22</div>
+            </div>
+            <!-- Erros -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Erros</div>
+              <div class="nome press-start-15px-border text-light">50</div>
+            </div>
+          </div>
+          <!-- Container - Utilizando Bootstrap -->
+          <!-- --------------------------------------------- -->
+          <!-- Botao - Nome - Acurácia - Tempo - Erros -->
+          <div class="row trilha-bg justify-content-between p-0">
+            <!-- Botao iniciar -->
+            <div class="col-1 btn-iniciarTrilha">
+              <a class="press-start-15px align-content-center botao" href="#" role="button"><img class="botao" src="./img/Frame 2.svg" alt="jogar" /></a>
+            </div>
+            <!-- Nome da trilha -->
+            <div class="col-5 text-start d-flex flex-column justify-content-center align-self-center ms-5">
+              <div class="nome mb-3 press-start-15px text-light">Nome</div>
+              <div class="nome press-start-15px-border text-light">Utilizando Bootstrap</div>
+            </div>
+            <!-- Acuracia -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Acurácia</div>
+              <div class="nome press-start-15px-border text-light">58%</div>
+            </div>
+            <!-- Tempo -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Tempo</div>
+              <div class="nome press-start-15px-border text-light">05:22</div>
+            </div>
+            <!-- Erros -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Erros</div>
+              <div class="nome press-start-15px-border text-light">50</div>
+            </div>
+          </div>
+          <!-- Container - Utilizando Canvas -->
+          <!-- --------------------------------------------- -->
+          <!-- Botao - Nome - Acurácia - Tempo - Erros -->
+          <div class="row trilha-bg justify-content-between p-0">
+            <!-- Botao iniciar -->
+            <div class="col-1 btn-iniciarTrilha">
+              <a class="press-start-15px align-content-center botao" href="#" role="button"><img class="botao" src="./img/Frame 2.svg" alt="jogar" /></a>
+            </div>
+            <!-- Nome da trilha -->
+            <div class="col-5 text-start d-flex flex-column justify-content-center align-self-center ms-5">
+              <div class="nome mb-3 press-start-15px text-light">Nome</div>
+              <div class="nome press-start-15px-border text-light">Utilizando Canvas</div>
+            </div>
+            <!-- Acuracia -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Acurácia</div>
+              <div class="nome press-start-15px-border text-light">58%</div>
+            </div>
+            <!-- Tempo -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Tempo</div>
+              <div class="nome press-start-15px-border text-light">05:22</div>
+            </div>
+            <!-- Erros -->
+            <div class="col text-center justify-content-center align-self-center">
+              <div class="nome mb-3 press-start-15px text-light">Erros</div>
+              <div class="nome press-start-15px-border text-light">50</div>
+            </div>
+          </div>
+          <!-- --------------------------------------------- -->
+        </div>
+      </div>
+      <!-- Container - Trilha -->
+    </main>
+
+    <div class="offcanvas offcanvas-start" style="width: 180px" data-bs-backdrop="false" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header mb-xl-5"></div>
+      <div class="offcanvas-body">
+        <ul class="p-0 press-start">
+          <li class="list-group-item"><a class="btn btn-primary btn-sm btn-responsive w-100 mb-4 py-2" href="#" role="button">Campanha</a></li>
+          <li class="list-group-item"><a class="btn btn-primary btn-sm btn-responsive w-100 mb-4 py-2" href="#" role="button">Multiplayer</a></li>
+          <li class="list-group-item"><a class="btn btn-primary btn-sm btn-responsive w-100 mb-4 py-2" href="#" role="button">Desempenho</a></li>
+          <li class="list-group-item"><a class="btn btn-primary btn-sm btn-responsive w-100 mb-4 py-2" href="#" role="button">Ranking</a></li>
+          <li class="list-group-item"><a class="btn btn-primary btn-sm btn-responsive w-100 mb-4 py-2" href="#" role="button">Conquistas</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // var offcanvas = new bootstrap.Offcanvas(document.getElementById("offcanvasExample"), {
+        //   backdrop: "static", --> exibe com pano de fundo !
+        // });
+        var offcanvas = new bootstrap.Offcanvas(document.getElementById("offcanvasExample"));
+
+        document.addEventListener("mousemove", function (event) {
+          var mouseX = event.clientX;
+
+          if (mouseX <= 0) {
+            offcanvas.show();
+          } else if (mouseX >= 500) {
+            offcanvas.hide();
+          }
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

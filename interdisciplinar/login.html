@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Battle_String</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/style-login.css" />
+  </head>
+
+  <body class="bg-black">
+    <main class="container">
+      <!-- Container - Logo Battle String -->
+      <div class="row">
+        <div class="container-fluid">
+          <img class="logo-login" src="./img/logo.svg" alt="logotipo" />
+        </div>
+      </div>
+      <!-- Container - Logo Battle String -->
+      <!-- --------------------------------------------- -->
+      <!-- Container -  Formulario  -->
+      <div class="row d-flex justify-content-center container-formulario">
+        <div class="container-fluid bg-formulario col-5 border rounded-2 align-content-center p-0">
+          <!-- Botão de fechar -->
+          <div class="position-relative">
+            <div class="position-absolute top-0 start-100 translate-middle">
+              <a href="#"><img class="botao-fechar" src="./img/btn-fechar.svg" alt="botão fechar" /></a>
+            </div>
+          </div>
+          <!-- --------------- -->
+          <div class="col formulario">
+            <form>
+              <!-- Email -->
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label text-email">E-mail</label>
+                <input type="email" class="form-control form-control-lg press-start-10px" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nome@examplo.com" />
+              </div>
+              <!-- Senha -->
+              <div class="mb-2">
+                <label for="exampleInputPassword1" class="form-label text-senha">Senha</label>
+                <input type="password" class="form-control form-control-lg press-start-10px" id="exampleInputPassword1" />
+                <div class="form-text press-start-10px mt-2 d-flex justify-content-end"><a id="esqueci-senha" href="#">Esqueci minha senha</a></div>
+              </div>
+              <!-- Botoes -->
+              <div class="d-flex justify-content-between mt-4">
+                <a href="#" class="btn btn-login">Login</a>
+                <a href="#" class="btn btn-cadastrar">Cadastrar</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Container -  Formulario  -->
+      <!-- --------------------------------------------- -->
+      <!-- Container -  texto  -->
+      <div class="row text-center container-texto">
+        <p class="text-explicacao">
+          Battle String é um jogo projetado para aprimoramento da proficiência em digitação, ajudando os jogadores a melhorar suas habilidades de digitação, visando atenuar a deficiência ou falta de proficiência nessa área fundamental. Sabemos que
+          muitas pessoas enfrentam dificuldades para digitar de forma rápida e precisa, o que pode afetar negativamente sua produtividade e eficiência em várias áreas, não apenas na tecnologia da informação. o jogo apresenta textos de código como
+          plano de fundo, permitindo que os jogadores se familiarizem com a sintaxe enquanto aprimoram suas habilidades de digitação.
+        </p>
+      </div>
+    </main>
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
